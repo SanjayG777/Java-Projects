@@ -1,21 +1,37 @@
-# Java-Projects
-Java programs practice.
+# Java Automation Tests
 
-## Hello World Example
+A Maven project for Java browser automation using Selenium WebDriver and TestNG.
+Apache POI is included for reading Excel `.xlsx` test data.
+The existing Java practice classes are in `src/main/java`; browser tests are in
+`src/test/java`.
 
-Create a Java file named `HelloWorld.java`:
+## Prerequisites
 
-```java
-public class HelloWorld {
-    public static void main(String[] args) {
-        System.out.println("Hello, World!");
-    }
-}
-```
+- JDK 17 or newer
+- Maven 3.8 or newer
+- Google Chrome installed
+- Network access on the first run so Maven and Selenium Manager can download dependencies and the matching driver
 
-To run:
+## Run
+
+Run the browser automation test:
 
 ```bash
-javac HelloWorld.java
-java HelloWorld
+mvn test
+```
+
+Selenium Manager resolves the Chrome driver automatically. The sample test runs
+Chrome in headless mode against Selenium's public web form demo.
+
+Build without running browser tests:
+
+```bash
+mvn -DskipTests package
+```
+
+The `HelloWorld` practice class can be run after compilation with:
+
+```bash
+mvn package
+java -cp target/classes HelloWorld
 ```
